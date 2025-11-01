@@ -1,1 +1,28 @@
-It first we gonna use Flask for webhook
+---
+
+### 🌐 3. `Setting Webhook on Linux Server`
+➡️ Ini menjelaskan cara menyiapkan server penerima webhook.  
+Ubah juga jadi Markdown (`Setting_Webhook_on_Linux_Server.md`) dan isi seperti ini:
+
+```markdown
+# 🌐 Setting Webhook on Linux Server
+
+## Requirements
+- Python 3.x
+- Flask or FastAPI
+- Public server (VPS or Replit)
+
+## Example (Flask)
+```python
+from flask import Flask, request, jsonify
+app = Flask(__name__)
+
+@app.route('/api/payment-hook', methods=['POST'])
+def payment_hook():
+    data = request.json
+    print("Received:", data)
+    # Add your validation logic here
+    return jsonify({"status": "ok"})
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
